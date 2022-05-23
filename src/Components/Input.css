@@ -1,0 +1,12 @@
+input {
+  height: 35px;
+  margin: 5px 0 0 0;
+}
+.input-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+span{
+    margin: 5px;
+}
