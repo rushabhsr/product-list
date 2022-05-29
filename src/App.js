@@ -7,8 +7,6 @@ function App() {
     "headers": [
       "Name",
       "Price",
-      "Category",
-      "In-Stock"
     ],
     "products": [
       {

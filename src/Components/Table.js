@@ -1,17 +1,18 @@
 import React from 'react'
+import CategoryWiseData from './CategoryWiseData';
 import './Table.css'
 const Table = (props) => {
-  let productItems = props.productTableData.products.map((product) =>
-    <tr>
-      <td>{product.name}</td><td>{product.price}</td><td>{product.category}</td>
-    </tr>
-  );
-  console.log(productItems);
+  // let productItems = props.productTableData.products.map((product) =>
+  //   <tr>
+  //     <td>{product.name}</td><td>{product.price}</td>
+  //   </tr>
+  // );
+  // console.log(productItems);
   return (
     <table>
-      <thead><tr>{props.productTableData.headers.map((header) => <th>{header}</th>)}</tr></thead>
+      <thead><tr>{props.productTableData.headers.map((header,index) => <th key={index}>{header}</th>)}</tr></thead>
       <tbody>
-        {productItems}
+        <CategoryWiseData allProducts={props.productTableData.products} />
       </tbody>
     </table>
   )
