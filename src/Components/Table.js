@@ -10,9 +10,9 @@ const Table = (props) => {
   // console.log(productItems);
   return (
     <table>
-      <thead><tr>{props.productTableData.headers.map((header,index) => <th key={index}>{header}</th>)}</tr></thead>
+      <thead><tr>{props.productTableData.headers.map((header, index) => <th key={index}>{header}</th>)}</tr></thead>
       <tbody>
-        <CategoryWiseData allProducts={props.productTableData.products} />
+        <CategoryWiseData allProducts={props.isChecked ? props.productTableData.products.filter(productItem => productItem.stocked) : props.productTableData.products} />
       </tbody>
     </table>
   )

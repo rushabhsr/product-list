@@ -1,8 +1,18 @@
+import { useState } from 'react';
 import './App.css';
 import Input from './Components/Input';
 import Table from './Components/Table';
 
 function App() {
+  const [isChecked, setIsChecked] = useState(false);
+  const handleChangeOnCheckBox = (isChecked) => {
+    setIsChecked(!isChecked);
+    // console.log("Data: " + JSON.stringify(productTableData.products.filter(productItem => productItem.stocked)));
+
+    console.log("Currently Checkbox Status" + isChecked)
+    // setCurrentTableData(productTableData.products.filter(productItem => productItem.stocked))
+    // setCurrentTableData(productTableData);}
+  };
   const productTableData = {
     "headers": [
       "Name",
@@ -52,8 +62,8 @@ function App() {
     <div className='main'>
       <h1>Product List</h1>
       <Input type={"text"} placeholder={"Search.."} />
-      <Input type={"checkbox"} text={"Only Show Products in Stock"} />
-      <Table productTableData={productTableData}/>
+      <Input type={"checkbox"} text={"Only Show Products in Stock"} isChecked={isChecked} onChange={() => handleChangeOnCheckBox(isChecked)} />
+      <Table productTableData={productTableData} isChecked={isChecked} />
     </div>
   );
 }
