@@ -3,6 +3,9 @@ import Items from './Items';
 
 const CategoryWiseData = (props) => {
     let productsData = props.allProducts;
+    if (props.searchString !== "") {
+        productsData = productsData.filter(productItem => productItem.name.toLowerCase().includes(props.searchString.toLowerCase()))
+    }
     // console.log(productsData)
     const distinctCateg = [...new Set(productsData.map(uni => uni.category))];
     // console.log("Category:" + category);

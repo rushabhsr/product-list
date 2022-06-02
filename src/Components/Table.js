@@ -12,7 +12,7 @@ const Table = (props) => {
     <table>
       <thead><tr>{props.productTableData.headers.map((header, index) => <th key={index}>{header}</th>)}</tr></thead>
       <tbody>
-        <CategoryWiseData allProducts={props.isChecked ? props.productTableData.products.filter(productItem => productItem.stocked) : props.productTableData.products} />
+        <CategoryWiseData allProducts={props.isChecked ? props.productTableData.products.filter(productItem => productItem.stocked) : props.productTableData.products} searchString={props.searchString} />
       </tbody>
     </table>
   )
