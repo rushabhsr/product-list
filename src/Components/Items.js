@@ -1,12 +1,14 @@
 import React from 'react'
 import './Items.css'
+import ItemData from './ItemData'
 
 const Items = (props) => {
+    let columnsPresent = props.columns.map((header) => header.toLowerCase());
     return (
-        props.categoryData.map((item, index) =>
-            <React.Fragment key={item + "" + index}>
-                <tr className={!item.stocked ? "red-class" : ""}><td>{item.name}</td><td>{item.price}</td></tr>
-            </React.Fragment>
+        props.categoryData.map((product, index) =>
+            <tr key={"product" + index} className={!product.stocked ? "red-class" : ""}>
+                <ItemData product={product} columnsPresent={columnsPresent} />
+            </tr>
         )
     )
 }

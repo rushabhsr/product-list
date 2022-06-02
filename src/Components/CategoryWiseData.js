@@ -12,8 +12,10 @@ const CategoryWiseData = (props) => {
     return (
         distinctCateg.map((category, index) =>
             <React.Fragment key={category + "" + index}>
-                <tr><th colSpan={2}>{category}</th></tr>
-                <Items categoryData={productsData.filter(productItem => productItem.category === category)} />
+                <tr><th colSpan={props.columns.length}>{category}</th></tr>
+                <Items categoryData={productsData.filter(productItem => productItem.category === category)}
+                    columns={props.columns}
+                />
             </React.Fragment>
         )
     )
